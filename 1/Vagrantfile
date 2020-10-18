@@ -1,0 +1,12 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/bionic64"
+
+  config.vm.network "forwarded_port", guest: 4200, host: 4200
+
+  config.vm.network "public_network"
+
+  config.vm.provision :shell, path: "setup.sh"
+  config.vm.provision :shell, path: "server-up.sh"
+  
+end
